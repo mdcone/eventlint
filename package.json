@@ -1,6 +1,6 @@
 {
   "name": "eventlint",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Checks to see that events which are listened for are emitted.",
   "homepage": "https://github.com/mdcone/eventlint",
   "author": {
@@ -11,7 +11,7 @@
   "repository": "mdcone/eventlint",
   "license": "MIT",
   "files": [
-    "index.js",
+    "lib",
     "cli.js"
   ],
   "keywords": [
