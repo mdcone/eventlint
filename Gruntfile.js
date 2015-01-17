@@ -41,8 +41,20 @@ module.exports = function (grunt) {
         files: '<%= jshint.test.src %>',
         tasks: ['jshint:test', 'mochacli']
       }
+    },
+    'release-it': {
+      options: {
+        pkgFiles: ['package.json'],
+        commitMessage: 'Release %s',
+        tagName: '%s',
+        tagAnnotation: 'Release %s',
+        buildCommand: false
+      }
     }
   });
+
+  grunt.loadNpmTasks('grunt-release-it');
+
 
   grunt.registerTask('default', ['jshint', 'mochacli']);
 };

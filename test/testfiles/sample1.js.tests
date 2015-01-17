@@ -1,0 +1,11 @@
+test2.on('hasEmit', function (data) {
+   test1.emit('hasNoListener');
+});
+
+
+test1.emit( 'hasEmit', data);
+
+
+test2.on('hasNoEmit' , function (data) {
+   test3.emit( 'hasEmit' );
+});

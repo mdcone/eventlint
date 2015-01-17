@@ -15,7 +15,7 @@ $ npm install --save eventlint
 ```js
 var eventlint = require('eventlint');
 
-eventlint('Rainbow');
+eventlint.lint('./lib', callback);
 ```
 
 ```sh
@@ -26,7 +26,7 @@ $ eventlint --help
 
 ## License
 
-MIT © [Michael Dylan Cone]()
+MIT © [Michael Dylan Cone](http://dotapply.net)
 
 
 [npm-url]: https://npmjs.org/package/eventlint

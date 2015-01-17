@@ -1,11 +1,41 @@
-/*global describe, it */
+/*global describe, it, require */
 'use strict';
-var assert = require('assert');
-var eventlint = require('../');
+var eventlint = require('../lib/eventlint'),
+    chai = require('chai');
 
-describe('eventlint node module', function () {
-  it('must have at least one test', function () {
-    eventlint();
-    assert(false, 'I was too lazy to write any tests. Shame on me.');
-  });
+chai.should();
+chai.use(require('chai-things'));
+
+describe('#lint', function () {
+    it('is a function', function () {
+        eventlint.lint.should.be.a('function');
+    });
+
+    it('should find events which aren\'t listened for' , function () {
+        var noListener = [];
+
+        eventlint.lint('./test/testfiles', '\.tests$', function (obj) {
+            if (obj.type === 'emit') {
+                noListener.push(obj.handle);
+            }
+        });
+        noListener.should.have.length(1);
+        noListener.should.contain('hasNoListener');
+        noListener.should.not.contain('hasNoEmit');
+        noListener.should.not.contain('hasEmit');
+    });
+
+    it('should find events which aren\'t emitted for' , function () {
+        var noEmit = [];
+
+        eventlint.lint('./test/testfiles', '\.tests$', function (obj) {
+            if (obj.type === 'listen') {
+                noEmit.push(obj.handle);
+            }
+        });
+        noEmit.should.have.length(1);
+        noEmit.should.contain('hasNoEmit');
+        noEmit.should.not.contain('hasEmit');
+        noEmit.should.not.contain('hasNoListener');
+    });
 });
