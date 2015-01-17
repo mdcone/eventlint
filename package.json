@@ -1,6 +1,6 @@
 {
   "name": "eventlint",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Checks to see that events which are listened for are emitted.",
   "homepage": "https://github.com/mdcone/eventlint",
   "author": {
@@ -34,6 +34,7 @@
     "grunt-contrib-nodeunit": "^0.4.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-mocha-cli": "^1.11.0",
+    "grunt-release": "^0.10.0",
     "grunt-release-it": "^0.2.1",
     "jshint-stylish": "^1.0.0",
     "load-grunt-tasks": "^1.0.0",
