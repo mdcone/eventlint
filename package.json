@@ -1,6 +1,6 @@
 {
   "name": "eventlint",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Checks to see that events which are listened for are emitted.",
   "homepage": "https://github.com/mdcone/eventlint",
   "author": {
