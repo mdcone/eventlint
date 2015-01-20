@@ -14,11 +14,11 @@ describe('#lint', function () {
     it('should find events which aren\'t listened for' , function () {
         var noListener = [];
 
-        eventlint.lint('./test/testfiles', '\.tests$', function (obj) {
+        eventlint.lint('./test/testfiles', function (obj) {
             if (obj.type === 'emit') {
                 noListener.push(obj.handle);
             }
-        });
+        }, '\.tests$');
         noListener.should.have.length(1);
         noListener.should.contain('hasNoListener');
         noListener.should.not.contain('hasNoEmit');
@@ -28,11 +28,11 @@ describe('#lint', function () {
     it('should find events which aren\'t emitted for' , function () {
         var noEmit = [];
 
-        eventlint.lint('./test/testfiles', '\.tests$', function (obj) {
+        eventlint.lint('./test/testfiles', function (obj) {
             if (obj.type === 'listen') {
                 noEmit.push(obj.handle);
             }
-        });
+        }, '\.tests$');
         noEmit.should.have.length(1);
         noEmit.should.contain('hasNoEmit');
         noEmit.should.not.contain('hasEmit');
