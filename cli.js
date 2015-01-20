@@ -14,7 +14,7 @@ var cli = meow({
   ].join('\n')
 });
 
-eventlint.lint(cli.input[0], cli.input[1], function (obj) {
+eventlint.lint(cli.input[0], function (obj) {
     var output = obj.file + ': ';
     if (obj.type === 'emit') {
         output += 'No listener found for emitted event: ';
@@ -25,4 +25,4 @@ eventlint.lint(cli.input[0], cli.input[1], function (obj) {
     output += obj.handle;
 
     console.log(output);
-});
+}, cli.input[1]);
