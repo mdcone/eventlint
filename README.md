@@ -1,26 +1,22 @@
 #  [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
 
-> Checks to see that events which are listened for are emitted.
+> A command line tool which checks to see that events which are listened for are
+> emitted.
 
 
 ## Install
 
 ```sh
-$ npm install --save eventlint
+$ npm install --global eventlint
 ```
-
+If you want to run this as part of a build the package grunt-eventlint is
+probably what you're looking for.
 
 ## Usage
 
-```js
-var eventlint = require('eventlint');
-
-eventlint.lint('./lib', callback);
-```
-
 ```sh
-$ npm install --global eventlint
 $ eventlint --help
+$ eventlint <directory> [<filePattern>]
 ```
 
 
